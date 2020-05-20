@@ -87,6 +87,14 @@ def process_paths(options, candidates=None, error=True):
         pattern = "%(filename)s:%(lnum)s:%(col)s: %(text)s"
     elif options.format == 'pylint':
         pattern = "%(filename)s:%(lnum)s: [%(type)s] %(text)s"
+    elif options.format == 'html':
+        pattern = """
+        <tr>
+            <td>%(filename)s</td>
+            <td>%(lnum)s</td>
+            <td>%(type)s</td>
+            <td>%(text)s</td>
+        </tr>"""
     else:  # 'parsable'
         pattern = "%(filename)s:%(lnum)s:%(col)s: [%(type)s] %(text)s"
 
